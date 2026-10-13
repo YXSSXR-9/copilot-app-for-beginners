@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "slide-qa",
+  "mode": "full",
+  "slides_reviewed": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24],
+  "score": {
+    "overall": 100,
+    "visual": 100,
+    "fidelity": 100
+  },
+  "collage_score": {
+    "overall": 91,
+    "readability": 22,
+    "space_management": 19,
+    "text_placement": 18,
+    "alignment": 14,
+    "cohesion": 18,
+    "evidence": "Viewed the collage and all 24 full-resolution slide images. The deck is legible, balanced, consistently aligned, and free of visible clipping or overlap."
+  },
+  "findings": [],
+  "dismissals": [],
+  "reason": "PASS: all 24 slides passed independent visual review; slides 4–5 correctly specify the public course repository, and no private-repository references were found in slide text or package XML."
+}

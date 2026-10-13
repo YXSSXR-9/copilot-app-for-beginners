@@ -1,0 +1,369 @@
+{
+  "title": "From one idea to coordinated work",
+  "slides": [
+    {
+      "type": "title",
+      "title": "From one idea to coordinated work",
+      "subtitle": "A 90-minute, hands-on GitHub Copilot app workshop using the Book App"
+    },
+    {
+      "type": "content",
+      "title": "What makes the app different?",
+      "bullets": [
+        "Separate sessions: run focused tasks in parallel, each in its own worktree.",
+        "See the work: keep plans, diffs, terminal output, and browser preview in one session.",
+        "Specialize help: use a custom agent for a defined role and a skill for reusable task guidance.",
+        "Share state: use a canvas to keep decisions and validation evidence visible beside the work."
+      ]
+    },
+    {
+      "type": "divider",
+      "title": "Wednesday participant preflight",
+      "subtitle": "Use slides 3–5 in the short setup call"
+    },
+    {
+      "type": "content",
+      "title": "Preflight call · 20 minutes",
+      "bullets": [
+        "0–3 min · Explain the goal, public-repo access, and setup checklist.",
+        "3–8 min · Confirm app installation and sign-in.",
+        "8–13 min · Confirm repo access and add the course repo as a project.",
+        "13–18 min · Confirm Git and Node.js/npm; run sample checks.",
+        "18–20 min · Resolve blockers and confirm readiness."
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Participant setup before class",
+      "items": [
+        {
+          "text": "GitHub account with Copilot access; organization policy allows the app"
+        },
+        {
+          "text": "Copilot app installed and signed in"
+        },
+        {
+          "text": "Clone the public course repo and add it as a Copilot app project"
+        },
+        {
+          "text": "Git available; Node.js LTS and npm installed"
+        },
+        {
+          "text": "Book App tests and build pass; preview opens"
+        },
+        {
+          "text": "GitHub CLI is not required"
+        }
+      ]
+    },
+    {
+      "type": "divider",
+      "title": "90-minute hands-on workshop",
+      "subtitle": "The app is the control room; the Book App is the work"
+    },
+    {
+      "type": "table",
+      "title": "GitHub + Copilot: from code to collaboration",
+      "headers": [
+        "Part",
+        "Role in the work"
+      ],
+      "rows": [
+        [
+          "GitHub",
+          "Shared repositories, issues, branches, pull requests, and reviews."
+        ],
+        [
+          "Copilot",
+          "Understand code, explore options, draft changes, and create tests."
+        ],
+        [
+          "Agents",
+          "Take defined tasks; people direct, review, and decide what ships."
+        ],
+        [
+          "Teams",
+          "Reduce repetitive work while staying accountable for quality."
+        ]
+      ]
+    },
+    {
+      "type": "content",
+      "title": "What is the GitHub Copilot app?",
+      "bullets": [
+        "A desktop workspace for working with Copilot agents across software tasks—not just another chat window.",
+        "Each session keeps a task's conversation and work together; worktrees can isolate changes.",
+        "See and manage work in context: plans, file changes, terminal, browser preview, and canvases.",
+        "Coordinate multiple tasks, then inspect the evidence and decide what is ready to share."
+      ]
+    },
+    {
+      "type": "content",
+      "title": "Skills and agents: guidance meets a focused role",
+      "bullets": [
+        "A skill packages reusable instructions and resources for a task that comes up repeatedly.",
+        "Example: book-app-reviewer gives Copilot a consistent checklist for filters, stats, and accessibility.",
+        "A custom agent is a named specialist with its own role instructions and selected tools.",
+        "Example: Book App Reviewer uses that role to create a read-only checklist; a person still verifies the diff and evidence."
+      ]
+    },
+    {
+      "type": "table",
+      "title": "The GitHub work loop",
+      "headers": [
+        "Stage",
+        "What happens"
+      ],
+      "rows": [
+        [
+          "Describe",
+          "State the need and what success looks like."
+        ],
+        [
+          "Plan",
+          "Review the approach before implementation."
+        ],
+        [
+          "Build",
+          "Make a focused change in an isolated worktree."
+        ],
+        [
+          "Prove",
+          "Review the diff, checks, and behavior."
+        ]
+      ]
+    },
+    {
+      "type": "content",
+      "title": "90 minutes · the learning path",
+      "bullets": [
+        "0–10 · Orient in the app, connect GitHub/Copilot concepts, and tour the Book App.",
+        "10–20 · Frame Clear filters and its acceptance criteria.",
+        "20–32 · Plan Session A; create a read-only review checklist in Session B.",
+        "32–42 · Mini-teach: sessions, worktrees, modes, agents, and skills.",
+        "42–62 · Implement in one session; finish the checklist in the other.",
+        "62–78 · Use a canvas, inspect changes, run checks, and validate in Browser.",
+        "78–90 · Compare evidence, debrief, and close."
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Start with the Book App",
+      "headers": [
+        "Feature",
+        "Show learners"
+      ],
+      "rows": [
+        [
+          "Search",
+          "Find books by title or author."
+        ],
+        [
+          "Filters",
+          "Narrow by genre and reading status."
+        ],
+        [
+          "Reading stats",
+          "See totals for books currently shown."
+        ],
+        [
+          "Empty state",
+          "Search/filter combination with no results."
+        ]
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "The challenge · Clear filters",
+      "items": [
+        {
+          "text": "Show the control only when search, genre, or reading status is active"
+        },
+        {
+          "text": "Selecting it resets all three filters to their defaults"
+        },
+        {
+          "text": "The full book list and its reading stats return"
+        },
+        {
+          "text": "Keep the change small; preserve existing behavior and dependencies"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "title": "Show the app, not just chat",
+      "bullets": [
+        "New and project sessions start the right kind of work.",
+        "Plan mode lets you review an approach before implementation.",
+        "Changes, Terminal, and Browser keep code and evidence in context.",
+        "Customize and Canvas manage reusable help and visible work state."
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Describe → plan → build → prove",
+      "headers": [
+        "Stage",
+        "What the learner does"
+      ],
+      "rows": [
+        [
+          "Describe",
+          "State the user need and observable acceptance criteria."
+        ],
+        [
+          "Plan",
+          "Inspect the approach before allowing implementation."
+        ],
+        [
+          "Build",
+          "Implement in an isolated worktree; use a second session for review criteria."
+        ],
+        [
+          "Prove",
+          "Check the diff, tests, build, browser behavior, and canvas evidence."
+        ]
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Hands-on 1 · Build session",
+      "items": [
+        {
+          "text": "Create Session A from the default branch in a new worktree; name it Clear filters build"
+        },
+        {
+          "text": "Use Plan mode and request a small implementation and validation plan"
+        },
+        {
+          "text": "Check the plan against the criteria; approve only when it fits"
+        },
+        {
+          "text": "Switch to Interactive and ask the agent to implement the approved plan"
+        },
+        {
+          "text": "Do not merge or push during the workshop"
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "title": "Hands-on 2 · Reviewer session",
+      "bullets": [
+        "Start Session B in a separate new worktree from the default branch; select Book App Reviewer.",
+        "Use the book-app-reviewer skill to produce a read-only acceptance checklist.",
+        "Ask it to inspect the existing code and state what must be verified—not to edit or run commands.",
+        "Session B is independent; it does not automatically see Session A's uncommitted diff.",
+        "Later compare its checklist with Session A's actual change and browser behavior."
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Mini-teach · Keep the work in context",
+      "headers": [
+        "Part of the workflow",
+        "Why it matters in the app"
+      ],
+      "rows": [
+        [
+          "Prompt",
+          "Describe this task and the outcome you need now."
+        ],
+        [
+          "Repository context",
+          "Ground work in the project files and existing patterns."
+        ],
+        [
+          "Session + worktree",
+          "Keep task history visible and changes isolated."
+        ],
+        [
+          "Canvas + checks",
+          "Track status, then verify with the diff, tests, and browser."
+        ]
+      ]
+    },
+    {
+      "type": "content",
+      "title": "Mini-teach · Canvas as the shared board",
+      "bullets": [
+        "Create or open a compact work board in the session side panel.",
+        "Track the feature proposal, Session A implementation, Session B review checklist, and verification evidence.",
+        "The canvas makes status visible; it does not replace reviewing the diff or running checks.",
+        "Use the board to tell what needs attention without searching a long chat."
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Hands-on 3 · Record and verify",
+      "items": [
+        {
+          "text": "Put acceptance criteria on the canvas; update both session lanes from what actually happened"
+        },
+        {
+          "text": "Inspect Session A's Changes diff; compare it with Session B's checklist"
+        },
+        {
+          "text": "Run npm test -- --run and npm run build in samples/book-app-web"
+        },
+        {
+          "text": "In Browser, test no filters, each active filter, and reset behavior"
+        },
+        {
+          "text": "Record only checks you personally observed; mark blocked checks as not run"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "title": "Validate Clear filters",
+      "headers": [
+        "State",
+        "Expected result"
+      ],
+      "rows": [
+        [
+          "No active filters",
+          "Control hidden; full list and stats show."
+        ],
+        [
+          "Search, genre, or status active",
+          "Control is visible."
+        ],
+        [
+          "Select Clear filters",
+          "All filters reset; full list and stats return."
+        ],
+        [
+          "Automated checks",
+          "Tests and build pass; inspect actual output."
+        ]
+      ]
+    },
+    {
+      "type": "content",
+      "title": "Compare the evidence",
+      "bullets": [
+        "Session A · What files changed? Does the diff match the plan? Did tests and build pass?",
+        "Session B · What criteria did the reviewer identify? Which are confirmed in code?",
+        "Browser · What behavior did you personally observe?",
+        "Canvas · Does the board reflect actual status, including anything not run?"
+      ]
+    },
+    {
+      "type": "content",
+      "title": "Takeaways",
+      "bullets": [
+        "The app is a place to coordinate work, not only ask for code.",
+        "Separate sessions make concurrent tasks visible and isolated.",
+        "Skills and custom agents shape how help is delivered; they are not proof of correctness.",
+        "A canvas keeps status visible; people still inspect diffs and evidence."
+      ]
+    },
+    {
+      "type": "closing",
+      "title": "Describe. Coordinate. Verify."
+    }
+  ]
+}
