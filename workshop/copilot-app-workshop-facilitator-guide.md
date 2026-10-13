@@ -6,7 +6,7 @@
 **Duration:** 90 minutes, plus a separate 20-minute participant preflight call
 **Working artifact:** the existing `samples/book-app-web` React app
 **Presentation:** [copilot-app-book-app-workshop.pptx](./copilot-app-book-app-workshop.pptx)
-**Learner outcome:** implement and verify a small feature while using the Copilot app to coordinate isolated sessions, reusable skills, a custom agent, and a canvas.
+**Learner outcome:** plan, build, review, and verify a small coding task in the Copilot app; explain how a custom agent differs from a skill; create and test a focused agent with role-appropriate tools; and observe an instructor-led WorkIQ MCP demonstration.
 
 The lesson is about supervising work in the app, not about building a production application from scratch. Keep the feature small and use the canonical Book App in this course repository.
 
@@ -17,8 +17,9 @@ The lesson is about supervising work in the app, not about building a production
 3. Keep `main` protected and have each learner work from their own checkout in a separate session/worktree and branch. Never ask the whole class to edit or push directly to `main`.
 4. Confirm the GitHub Copilot app is available to learners and permitted by organization policy.
 5. Run the sample's tests and build, then open its browser preview. Do not begin class with an unverified starting point.
-6. Open the slide deck and keep this guide available. Present slides 1–5 during the Wednesday preflight call; use slides 6–24 during the workshop.
-7. If the Canvas extension or the prepared custom agent is unavailable in the app version learners use, use the fallback activities below rather than losing the implementation and verification time.
+6. Confirm the facilitator's WorkIQ MCP connection is available and choose a safe, authorized example that can be demonstrated without exposing private information. Participants do not need WorkIQ access.
+7. Open the slide deck and keep this guide available. Present slides 1–5 during the Wednesday preflight call; use slides 6–27 during the workshop.
+8. If custom agents are unavailable in the app version learners use, demonstrate the prepared reviewer and have participants draft their agent definition for a follow-up; protect implementation and verification time.
 
 ## Wednesday preflight call (20 minutes)
 
@@ -61,21 +62,36 @@ The Book App lets a reader search books by title/author, filter by genre and rea
 - Selecting it resets all three filters to their defaults.
 - The full list and stats for the full list return.
 - Existing search, filtering, stats, accessibility, and empty-state behavior remain intact.
-- Keep the change small. No new dependencies, backend, database, external API, unrelated redesign, merge, or push.
+- A search value made only of spaces is not an effective filter and should not show the control.
+- For the Book App feature, keep the change small: no new dependencies, backend, database, external API, or unrelated redesign. The separate WorkIQ MCP demonstration does not add an integration to the sample. Do not merge or push.
 
 ## 90-minute facilitator run of show
 
 | Time | Slides | What to do |
 | --- | --- | --- |
-| 0–10 | 6–8, 11–12 | Frame the goal and the GitHub/Copilot/app distinction. Show the project/session list and main session surface, then launch the Book App preview. Demonstrate search, genre/status filters, updated stats, and an empty result; ask what currently takes extra steps. |
-| 10–20 | 13–15 | Introduce Clear filters and read the acceptance criteria together. Explain the Describe → Plan → Build → Prove loop; ask learners to improve the prompt by naming the user need, behavior, boundaries, and verification. |
-| 20–32 | 16–17 | Create Session A in a new worktree from the default branch and request a plan in Plan mode. Review it against the criteria. Start Session B independently in a second worktree; select the prepared reviewer agent and request a read-only checklist using the existing skill. |
-| 32–42 | 9–10, 18 | Mini-teach skills versus agents and the GitHub work loop. Explain sessions versus worktrees, Plan versus Interactive, and where reusable guidance/agents are managed in Customize. Point out that Session B cannot automatically see Session A's uncommitted changes. |
-| 42–62 | 16–17 | Return to Session A; approve or revise the plan, switch to Interactive, and implement. Let Session B finish its checklist independently. Coach learners to review proposed changes rather than accept a broad rewrite. |
-| 62–78 | 19–21 | Open a Canvas and track the proposal, build, reviewer checklist, and validation. Inspect Session A's diff. Run tests/build and validate behavior in Browser. Mark evidence only after observing it. |
-| 78–90 | 22–24 | Compare Session A's actual diff and checks with Session B's checklist. Invite learners to name one useful app feature and one thing they still had to verify themselves. Close with the takeaways. |
+| 0–6 | 6–10 | Orient participants: distinguish GitHub, Copilot, and the Copilot app. Set the goal as coordinating and verifying work, not simply receiving generated code. Introduce the Describe → Plan → Build → Prove loop. |
+| 6–15 | 11–13 | Launch the Book App preview. Demonstrate title/author search, genre/status filters, changing stats, and an empty result. Introduce Clear filters and agree what observable success means. |
+| 15–25 | 14–16 | Instructor demo: show project/session context, an isolated worktree, Plan mode, and review of the proposal against acceptance criteria before edits are authorized. |
+| 25–45 | 16 | Learners create a worktree from `main`, request a plan, check it against the criteria, approve/revise it, and implement Clear filters. Coach them to inspect the changes. |
+| 45–68 | 17–20 | Show the prepared Book App Reviewer agent reviewing the implementation and surfacing the whitespace-only search edge case. Explain that an agent is a configured role, instructions, and selected tools—not a new model. Walk through the role menu, then participants choose a role, create an agent with only the tools it needs, and test it against the current Clear filters change. |
+| 68–74 | 21 | Instructor-only WorkIQ MCP demonstration. Show one safe, authorized tool call using the preconfigured WorkIQ server. Explain how MCP connects an agent to external tools/data; participants observe only. |
+| 74–85 | 22–25 | Learners track actual evidence in Canvas, inspect the app diff and custom-agent output, run tests/build, and verify key filter states in Browser. Distinguish observed results from checks not run. |
+| 85–90 | 26–27 | Debrief the plan/build/review/refine/verify loop. Invite each learner to name one useful Copilot app capability and choose an experiment for the next three days. Do not merge or push. |
 
-The ranges above total 90 minutes. Keep the app demonstration short; the hands-on implementation and verification are the core learner work.
+**Timing check:** 6 + 9 + 10 + 20 + 23 + 6 + 11 + 5 = 90 minutes. Protect the custom-agent activity and verification blocks; keep demonstrations focused.
+
+### WorkIQ MCP demonstration
+
+- Confirm the WorkIQ MCP server is installed and available to the facilitator's Copilot app session before class.
+- Prepare one short, safe prompt in advance. Use only information the facilitator is authorized to show; avoid private messages, personal data, confidential content, and live attendee data.
+- Make the tool invocation visible if possible. Point out the external tool call, the returned context, and how it differs from repository access.
+- Tell participants that MCP is an integration mechanism, not a guarantee of correctness. They should judge tool output and verify any resulting code independently.
+- This is a facilitator demonstration only. Do not ask participants to install, authenticate, or query WorkIQ.
+- If WorkIQ is unavailable during class, explain the concept with the slide and continue; do not spend the hands-on time debugging the connection.
+
+### Three-day experimentation invitation
+
+Close by inviting learners to use the following three days to explore the app and course repository at their own pace. Suggest trying a new prompt, making a second isolated session, using the reviewer skill/agent, or inspecting how an available MCP server expands an agent's context. Make clear that they should keep experiments in their own worktree and should not push or merge unless separately instructed.
 
 ## Learner prompts
 
@@ -96,31 +112,39 @@ First, inspect the relevant code and propose a short implementation and validati
 
 After reviewing the plan, approve it only if it covers all three filters and the tests/behavior to check. Then ask the agent to implement the approved plan. If it skipped a case, request a plan revision rather than repairing the feature yourself.
 
-### Session B: read-only checklist
+### Hands-on 2: create and test a custom agent
 
+Explain: “An agent is Copilot configured for a particular kind of work. Its name, instructions, and selected tools give it a focused role; it is not a separately trained model. Our Book App Reviewer is read-only, so it can inspect and report, but it cannot edit the app. Other agents can help design tests, investigate bugs, explain code, improve accessibility, build a small feature, or draft documentation.”
+
+Show `.github/agents/book-app-reviewer.agent.md` and point out its frontmatter (`name`, `description`, and `tools`) and its role/boundary instructions. Explain that tool selection sets what an agent is equipped to do; instructions define the task. Read/search tools suit reviewing, investigating, and explaining. Writing tests, changing code, or drafting docs requires edit access, which lets the agent edit files in its workspace, so grant it only when needed and review every change. A narrow prompt is useful guidance, not a technical file-level permission boundary.
+
+Let participants choose a role from slide 18: code reviewer, test designer, bug investigator, accessibility helper, code explainer, feature builder, or documentation helper. Have them create the role in their own worktree.
+
+**Agent-creation prompt** (replace `[ROLE]` with the selected role):
 ```text
-Use the book-app-reviewer skill to inspect the current Book App and prepare a concise, read-only acceptance checklist for the Clear filters feature:
-- hidden when no filters are active
-- visible when search, genre, or reading status is active
-- resets all three filters
-- restores the full list and corresponding stats
-- preserves existing behavior and accessibility
+Read `.github/agents/book-app-reviewer.agent.md` as an example. Create a custom agent for this role: [ROLE]. Focus it on the Book App's Clear filters change in `samples/book-app-web`. Choose a clear name and create a separate agent file under `.github/agents/`; do not modify the existing Book App Reviewer.
 
-Do not edit files or run commands. This session is independent and cannot see another worktree's uncommitted changes. State what evidence I should inspect later; do not claim the feature has passed.
+Give it the least tool access needed for the role. For a read-only role, allow only file-reading and search tools. If its role writes tests, code, or documentation, grant edit access only if needed and clearly instruct it to limit changes to the relevant files. Do not grant terminal, commit, or push tools. State its task, boundaries, and what it must report; require file paths and specific evidence, beginner-friendly explanations, and clear disclosure of checks it did not run. Show me the new agent definition and explain its role, tools, and limits. Do not run it yet.
 ```
 
-The checklist is deliberately produced from the baseline rather than from Session A's branch. At the end, bring the checklist to Session A (or read it aloud) and compare it with the actual diff and test/browser evidence. Do not imply that isolated worktrees share uncommitted files.
+After reviewing the generated definition, reload/reopen the Copilot app if the new agent does not appear. Keep the participant in the same project/worktree where Clear filters was implemented. Select the new agent and use this role-neutral test prompt, replacing `[ROLE]`:
+
+```text
+Act as my [ROLE] agent for the Clear filters change in this worktree. Do the job described in your agent instructions, using the smallest useful scope. Do not commit or push. If your role is read-only, report code evidence and checks that still need to be run. If your role makes changes, summarize every file changed and why; do not claim tests, build, or browser checks passed unless you actually ran them.
+```
+
+Ask participants to inspect the result: did the agent do the selected job, stay within its intended scope, and support claims with evidence? If it edited files, inspect the diff and decide which tests or browser checks should follow. The agent file and any changes stay in the participant's own worktree; do not push or merge during the exercise.
 
 ## Canvas activity
 
 Create or open a simple workshop board in the app's Canvas side panel. Use four items:
 
 1. **Feature proposal** — acceptance criteria, status: ready.
-2. **Session A — build** — plan approval and implementation status.
-3. **Session B — review checklist** — checklist findings, status: ready.
+2. **Build session** — plan approval and implementation status.
+3. **Custom agent work** — selected role, output or changes, and what needs human verification.
 4. **Verification evidence** — diff inspected, tests, build, browser checks; status reflects what actually ran.
 
-Keep the board small and visible while moving between sessions. Explain that it summarizes task state; it does not merge worktrees or prove that the code is correct.
+Keep the board small and visible. Explain that it summarizes task state; it does not prove that the code or agent review is correct.
 
 ## Verification checklist
 
@@ -138,17 +162,19 @@ In the Browser preview, check each of the following:
 3. Select a genre; Clear filters appears.
 4. Select a reading status; Clear filters appears.
 5. With more than one filter active, selecting Clear filters resets all three, restores the full list, and updates stats.
-6. Review the diff for scope and accessible control text. Confirm the existing empty-state and filter behavior remain intact.
+6. Enter spaces only in the search box; Clear filters stays hidden because the search is not effective.
+7. Review the diff for scope and accessible control text. Confirm the existing empty-state and filter behavior remain intact.
+8. Compare the custom agent's output or changes with the task. Include the reviewer-discovered whitespace-only search edge case in verification; an agent report is not proof of runtime behavior.
 
 If tests, build, or preview do not run, record them as **not run/blocked**, not as passed. Use the Canvas to make the distinction visible.
 
 ## Facilitation and recovery
 
 - **Git/worktree setup fails:** keep learners in their current project session and have them observe the instructor demo; do not switch branches or use shared files to simulate isolation.
-- **Custom agent is missing:** verify its profile is on the repository's default branch and reload/reopen the project. If still unavailable, use the default agent with the same read-only prompt; explain that the distinct agent role is prepared configuration, not magic.
+- **New custom agent does not appear:** confirm its definition is saved under `.github/agents/` in the learner's worktree, then reload/reopen the Copilot app. If time runs out, have the learner inspect the definition and let the facilitator demonstrate a prepared agent; finish testing the learner's agent after class.
 - **Skill is not offered automatically:** explicitly mention/use the `book-app-reviewer` skill in the prompt. A skill provides reusable task instructions; it does not itself enforce a read-only permission boundary.
 - **Canvas unavailable:** make a four-row status board in a plain-text note or on a shared whiteboard, and continue the exercise. Do not claim that this fallback is the Copilot Canvas.
-- **Implementation takes longer:** preserve at least 10 minutes for diff review and one verification path. Use the prepared reviewer checklist and instructor's tested baseline as support, but distinguish demonstrated checks from the learner's own.
+- **Implementation takes longer:** preserve time for one test/browser verification and a short custom-agent test. The agent-creation activity can continue after class; do not claim an untested agent worked.
 - **A learner's feature does not work:** ask them to reproduce one acceptance criterion, inspect the exact diff, and revise the prompt/plan. The lesson is about the work loop, not racing to a perfect demo.
 
 ## Materials in this repository

@@ -103,8 +103,8 @@
       "bullets": [
         "A skill packages reusable instructions and resources for a task that comes up repeatedly.",
         "Example: book-app-reviewer gives Copilot a consistent checklist for filters, stats, and accessibility.",
-        "A custom agent is a named specialist with its own role instructions and selected tools.",
-        "Example: Book App Reviewer uses that role to create a read-only checklist; a person still verifies the diff and evidence."
+        "A custom agent is a named role with focused instructions and selected tools—not a newly trained model.",
+        "Example: Book App Reviewer is read-only; it reports findings, while a person decides what to change and verifies the result."
       ]
     },
     {
@@ -137,13 +137,14 @@
       "type": "content",
       "title": "90 minutes · the learning path",
       "bullets": [
-        "0–10 · Orient in the app, connect GitHub/Copilot concepts, and tour the Book App.",
-        "10–20 · Frame Clear filters and its acceptance criteria.",
-        "20–32 · Plan Session A; create a read-only review checklist in Session B.",
-        "32–42 · Mini-teach: sessions, worktrees, modes, agents, and skills.",
-        "42–62 · Implement in one session; finish the checklist in the other.",
-        "62–78 · Use a canvas, inspect changes, run checks, and validate in Browser.",
-        "78–90 · Compare evidence, debrief, and close."
+        "0–6 · Orient: what the app adds beyond a single chat.",
+        "6–15 · Explore the Book App and define a small user need.",
+        "15–25 · Instructor demo: sessions, worktrees, and reviewing a plan.",
+        "25–45 · Hands-on: plan and implement Clear filters in an isolated session.",
+        "45–68 · See a reviewer agent find an edge case; create and test your own agent.",
+        "68–74 · Instructor demo: connect an external tool with WorkIQ MCP.",
+        "74–85 · Prove the work: inspect the diff, run checks, and test in Browser.",
+        "85–90 · Debrief and choose a three-day experiment."
       ]
     },
     {
@@ -218,7 +219,7 @@
         ],
         [
           "Build",
-          "Implement in an isolated worktree; use a second session for review criteria."
+          "Build in an isolated worktree; review with a custom agent."
         ],
         [
           "Prove",
@@ -249,13 +250,46 @@
     },
     {
       "type": "content",
-      "title": "Hands-on 2 · Reviewer session",
+      "title": "Agent example · a role with boundaries",
       "bullets": [
-        "Start Session B in a separate new worktree from the default branch; select Book App Reviewer.",
-        "Use the book-app-reviewer skill to produce a read-only acceptance checklist.",
-        "Ask it to inspect the existing code and state what must be verified—not to edit or run commands.",
-        "Session B is independent; it does not automatically see Session A's uncommitted diff.",
-        "Later compare its checklist with Session A's actual change and browser behavior."
+        "The Book App Reviewer is a repository-defined custom agent: a focused role, instructions, and selected tools.",
+        "It is not a new model; its read-only tools let it inspect and report without editing the app.",
+        "Run it against the Clear filters implementation and show its whitespace-only search finding.",
+        "The reviewer identifies a concern; the coding agent makes the fix, and people verify the outcome."
+      ]
+    },
+    {
+      "type": "content",
+      "title": "Choose a focused job for your agent",
+      "bullets": [
+        "Code reviewer: find behavior gaps and cite code evidence; read-only.",
+        "Test designer: suggest edge cases, or write focused tests when allowed.",
+        "Bug investigator: trace a symptom to likely causes; show evidence.",
+        "Accessibility helper: audit labels and keyboard use, or make an approved fix.",
+        "Code explainer: teach where a feature or behavior lives; read-only.",
+        "Feature builder: implement one small change after a plan; inspect the diff.",
+        "Documentation helper: draft or update one named document."
+      ]
+    },
+    {
+      "type": "checklist",
+      "title": "Hands-on 2 · Create and test your agent",
+      "items": [
+        {
+          "text": "Inspect the Book App Reviewer definition"
+        },
+        {
+          "text": "Choose a role and decide what tools it needs"
+        },
+        {
+          "text": "Create a separate agent file under .github/agents/"
+        },
+        {
+          "text": "Reload if needed; select it and try its role on Clear filters"
+        },
+        {
+          "text": "Check its evidence and inspect any changes it made"
+        }
       ]
     },
     {
@@ -286,10 +320,21 @@
     },
     {
       "type": "content",
+      "title": "Instructor demo · WorkIQ through MCP",
+      "bullets": [
+        "MCP connects an agent session to tools and information beyond the repository.",
+        "Watch the facilitator use a preconfigured WorkIQ server for one safe, authorized example.",
+        "Notice when the agent calls the tool, what information it receives, and how the result helps the task.",
+        "Participants observe only; no WorkIQ setup or account access is required.",
+        "Treat tool output as context to review, not as proof that code or a decision is correct."
+      ]
+    },
+    {
+      "type": "content",
       "title": "Mini-teach · Canvas as the shared board",
       "bullets": [
         "Create or open a compact work board in the session side panel.",
-        "Track the feature proposal, Session A implementation, Session B review checklist, and verification evidence.",
+        "Track the feature plan, implementation, chosen agent role and work, and verification evidence.",
         "The canvas makes status visible; it does not replace reviewing the diff or running checks.",
         "Use the board to tell what needs attention without searching a long chat."
       ]
@@ -299,10 +344,10 @@
       "title": "Hands-on 3 · Record and verify",
       "items": [
         {
-          "text": "Put acceptance criteria on the canvas; update both session lanes from what actually happened"
+          "text": "Put acceptance criteria on the canvas; update build and agent-work status from what actually happened"
         },
         {
-          "text": "Inspect Session A's Changes diff; compare it with Session B's checklist"
+          "text": "Inspect the agent's output and any edits; compare them with the task"
         },
         {
           "text": "Run npm test -- --run and npm run build in samples/book-app-web"
@@ -336,6 +381,10 @@
           "All filters reset; full list and stats return."
         ],
         [
+          "Spaces-only search",
+          "Treated as no effective filter; Clear filters stays hidden."
+        ],
+        [
           "Automated checks",
           "Tests and build pass; inspect actual output."
         ]
@@ -345,8 +394,8 @@
       "type": "content",
       "title": "Compare the evidence",
       "bullets": [
-        "Session A · What files changed? Does the diff match the plan? Did tests and build pass?",
-        "Session B · What criteria did the reviewer identify? Which are confirmed in code?",
+        "Build session · What files changed? Does the diff match the plan? Did tests and build pass?",
+        "Custom agent · Did it do the selected job? Is its output grounded in evidence?",
         "Browser · What behavior did you personally observe?",
         "Canvas · Does the board reflect actual status, including anything not run?"
       ]
@@ -357,8 +406,9 @@
       "bullets": [
         "The app is a place to coordinate work, not only ask for code.",
         "Separate sessions make concurrent tasks visible and isolated.",
-        "Skills and custom agents shape how help is delivered; they are not proof of correctness.",
-        "A canvas keeps status visible; people still inspect diffs and evidence."
+        "Skills and custom agents shape how help is delivered; MCP adds tools and information.",
+        "A canvas keeps status visible; people still inspect diffs and evidence.",
+        "Use the next three days to experiment with the app and workshop repository."
       ]
     },
     {

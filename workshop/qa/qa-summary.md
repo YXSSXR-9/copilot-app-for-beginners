@@ -27,15 +27,10 @@ _Visual: 100/100 · Fidelity: 100/100 (0 fidelity warning(s))_
 | 22 | ✅ 100 |
 | 23 | ✅ 100 |
 | 24 | ✅ 100 |
+| 25 | ✅ 100 |
+| 26 | ✅ 100 |
+| 27 | ✅ 100 |
 
 **SLIDE REVIEW PRIORITY**
 
-- 🟢 LIKELY OK  Slides 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24
-
-## Independent visual review
-
-- Status: PASS; all 24 slides reviewed at full resolution.
-- Independent collage score: 91/100.
-- P0/P1 findings: none.
-- Slides 4–5 correctly describe using the public course repository; no private-repository references remain in the deck.
-- Confidence: high (0.97).
+- 🟢 LIKELY OK  Slides 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27
